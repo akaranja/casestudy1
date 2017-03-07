@@ -6,3 +6,6 @@ download("https://d396qusza40orc.cloudfront.net/getdata%2Fdata%2FEDSTATS_Country
 #Read the GDPData into R and check it out
 GDP<- read.csv("GDPData.csv")
 str(GDP)
+#Read the EducationData into R and chek it out
+EducData<-read.csv("EducationData.csv")
+str(EducData)
