@@ -9,3 +9,18 @@ str(GDP)
 #Read the EducationData into R and chek it out
 EducData<-read.csv("EducationData.csv")
 str(EducData)
+#only the rows with observations(without the headings)
+FGDPData <- GDP[5:194,]
+EducationData<- EducData[1:234,]
+
+#cleaning up the Data
+##remove columns with NA and missing values
+newGDP <- FGDPData[c(-3,-6,-7,-8,-9,-10)]
+head(newGDP)
+
+names(newGDP)<-c("CountryCode", "Ranking", "Country", "Millions_Of_US_Dollars")
+head(newGDP)
+
+
+
+
