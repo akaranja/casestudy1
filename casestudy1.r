@@ -21,11 +21,12 @@ head(newGDP)
 ## Give names to the clean GDPData
 names(newGDP)<-c("CountryCode", "Ranking", "Country", "Millions_Of_US_Dollars")
 head(newGDP)
+list(newGDP)
 
 #Clean up EducationData
 ##remove columns with NA and missing values.
 head(EducationData)
-
+list(EducationData)
 
 #Merging the data
 GDP_Educ<- merge (newGDP, EducationData, by="CountryCode", all=TRUE)
