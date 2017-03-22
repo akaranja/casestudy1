@@ -8,10 +8,15 @@ EducData<-read.csv("EducationData.csv", header = TRUE)
 str(EducData)
 
 #only the rows with observations(without the headings)
-FGDPData <- GDP[5:194,]
 EducationData<- EducData[1:234,]
 
 #Clean up EducationData
-##remove columns with NA and missing values.
-head(EducationData)
-list(EducationData)
+##how many missing value in each column
+colSums(is.na(EducationData))
+
+#remove any columns with <50 missing values
+EducationData.clean<-EducationData[ ,colSums(is.na(EducationData))<50]
+EducationData.final <- na.omit(EducationData.clean)
+nrow(EducationData.final)
+
+View(EducationData.final)

@@ -8,14 +8,24 @@ str(GDP)
 #only the rows with observations(without the headings)
 FGDPData <- GDP[5:194,]
 
-#cleaning up the GDPData
 ##remove columns with NA and missing values
-newGDP <- FGDPData[c(-3,-6,-7,-8,-9,-10)]
-head(newGDP)
+##how many missing value in each column
+FGDPData[ ,3] <- NULL
+str(FGDPData)
+head(FGDPData)
+# more NA columns
+FGDPData[ ,5:9] <- NULL
+str(FGDPData)
+head(FGDPData)
 
-## Give names to the clean GDPData
-names(newGDP)<-c("CountryCode", "Ranking", "Country", "Millions_Of_US_Dollars")
-head(newGDP)
-list(newGDP)
+## Give names to column in the clean GDPData
+names(FGDPData)<-c("CountryCode", "Ranking", "Country", "GDP")
+head(FGDPData)
+list(FGDPData)
+library(readr)
+
+View(FGDPData)
+
+
 
 
