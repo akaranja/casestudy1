@@ -23,10 +23,13 @@ FGDPData[ ,5:9] <- NULL
 str(FGDPData)
 head(FGDPData)
 
+
 ## Give names to the clean GDPData
 names(FGDPData)<-c("CountryCode", "Ranking", "Country", "Millions_Of_US_Dollars")
 head(FGDPData)
 list(FGDPData)
+#make a dataframe of NEWGDP
+NEWGDP<- FGDPData
 
 
 
