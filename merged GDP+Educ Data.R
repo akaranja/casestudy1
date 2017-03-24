@@ -82,26 +82,15 @@ View(GDP_Educ.table)
 # how many missing values per column
 colSums(is.na(GDP_Educ.table))
 
-#How many countries are Lower Middle Income but among the 38 nations with highest GDP
-#Sort by Quartile in Descending order
-#list all Rows with Quartile =5
-GDP_Educ.table[5, ]
-## Lower Middle Income = 4 Countries.
 
+GDP_Educ.final$Income.Groups <- factor(GDP_Educ.final$Income.Group,levels=c("High income: nonOECD","High income: OECD", "Upper middle income", "Lower middle income","Low income"),
+                      labels=c("High_nonOECD","High_OECG","Upper_Mid","Lower_Mid","Low_Income")) 
 
-#GDP_Educ.table1 <- with(GDP_Educ.sort, table(CountryCode, GDP))
-#View(GDP_Educ.table1)
-
-#ggplot(GDP_Educ.sort, aes(x=GDP)GDP_Educ.sort$CountryCode, main ="GDP vs Country ", xlab="GDP", ylab="CountryCode")
-#geom_histogram(binwidth=.5, colour="black", fill="white") +
- # geom_vline(aes(xintercept=mean(GDP, na.rm=T)),   # Ignore NA values for mean
-             color="red", linetype="dashed", size=1)
-
-ggplot(GDP_Educ.sort, aes(x=GDP)) +
-  geom_histogram(binwidth=.5, colour="black", fill="white") +
-  geom_vline(aes(xintercept=mean(GDP, na.rm=T)),   # Ignore NA values for mean
-             color="red", linetype="dashed", size=1)
-
+# Kernel density plots for GDP
+# grouped by Income Group (indicated by color)
+qplot(log(GDP), data=GDP_Educ.final, geom="density", fill=Income.Group, alpha=I(.5), 
+      main="Distribution of GDP", xlab=" Log GDP", 
+      ylab="Density")
 
 
 
